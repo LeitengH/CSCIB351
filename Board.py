@@ -57,11 +57,12 @@ class Board(object):
     ########################################################################
 
     # Puts a pirce in the appropriate column and checks to see if it was a winning move
-    # Pieces are either 1 or 0; automatically decided
+    # Pieces are either 2 or 1; automatically decided
     # NOTE: does NOT check if the move is valid
     def makeMove(self, row, column):
         #update board data
-        piece = self.numMoves % 2
+        temp = self.numMoves % 2
+        piece = temp + 1
         self.lastMove = [piece, row, column]
         self.numMoves += 1
         self.board[row][column] = piece
